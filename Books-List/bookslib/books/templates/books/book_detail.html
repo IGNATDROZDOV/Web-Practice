@@ -1,0 +1,20 @@
+{% extends 'books/books_base.html' %}
+
+{% block content %}
+	<h5 class="mt-3">
+		{{ book.title }}
+	</h5>
+
+	<h5 class="mt-3">
+		{% for author in book.authors.all %}
+			{{author.name|title}} {{author.surname|title}}
+		{% endfor %}
+	</h5>
+
+	<p>
+		{{ book.short_desc }}
+	</p>
+
+	<a href="{{ book.body.url }}" download="{{ book.body.url }}" class="btn btn-primary">About</a>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'books/books_base.html'%}
+
+
+
+
+{% block content %}
+
+{% for author in authors %}
+<div class="card" style="width: 30%; margin: 2rem 0 2rem 15%;">
+	<h5 class="card-header">{{author.name|title}} {{author.surname|title}}</h5>
+	<div class="card-body">
+		<a href="{{ author.get_absolute_url }}" class="btn btn-primary">Books by this author</a>
+	</div>
+</div>
+{% endfor %}
+
+
+
+
+{% endblock %}

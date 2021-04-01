@@ -1,0 +1,10 @@
+{% extends 'books/books_base.html'%}
+
+{%block content%}
+<h2  style=" text-align: center;">
+	Books from {{author.name|title}} {{author.surname|title}}:
+</h2>
+	{% for book in author.books.all %}
+		{% include 'books/includes/book_card.html' %}
+	{% endfor %}
+{%endblock%}

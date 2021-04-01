@@ -1,0 +1,7 @@
+{% extends 'books/books_base.html' %}
+
+{% block content %}
+{% for book in books%}
+	{% include 'books/includes/book_card.html' %}
+{% endfor %}
+{% endblock %}

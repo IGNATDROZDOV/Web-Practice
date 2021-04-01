@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+
+	<div class="container" id="app">
+		<div class="card">
+			<h1>{{ app_title }}</h1>
+			<div class="form-control">
+				<input type="text" v-bind:placeholder="placeholder_head" v-bind:value="input_value"
+					v-on:input="input_change" v-on:keypress.enter="add_elem"/>
+			</div>
+			<button class="btn" v-on:click="add_elem">add</button>
+			<hr>
+			<ul class="list" v-if="list_of_tasks.length !== 0">
+				<li class="task_value" v-for="(task, ind) in list_of_tasks">
+					{{ toUpperCase(task) }}
+					<button class="btn danger" v-on:click="delete_elem(ind)">delete</button>
+				</li>
+			</ul>
+			<div v-else>
+				There are no tasks in your list
+			</div>
+
+		</div>
+	</div>
+
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="main.js"></script>
+
+</body>
+
+</html>
